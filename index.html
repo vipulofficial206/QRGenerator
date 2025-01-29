@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay loop muted class="video-bg">
+        <source src="https://videos.pexels.com/video-files/3141208/3141208-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="qrcont">
+        <div class="qrinputbox">
+            <p>QR CODE GENERATOR</p>
+        </div>
+        <input class="qrinput" type="text" placeholder="Enter text or URL" id="qrinput">
+
+        <div id="qrimgbox">
+            <img id="qrimage" src="">
+        </div>
+        
+        <div class="qrbutton">
+            <button id="qrgenerator" onclick="generateqr()">Generate QR</button>
+            </div>
+        <div class="downloadqrbtn">
+            <button id="qrdownload" onclick="downloadQR()" style="display: none;">Download QR</button>
+        </div>
+    </div>
+
+    <script>
+        let qrinput = document.getElementById("qrinput");
+        let qrimage = document.getElementById("qrimage");
+        let downloadBtn = document.getElementById("qrdownload");
+        let qrURL = ""; // Store generated QR code URL
+
+        function generateqr() {
+            if (qrinput.value !== "") {
+                qrURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(qrinput.value);
+                qrimage.src = qrURL;
+                qrimage.classList.add("show-img");
+                downloadBtn.style.display = "inline-block"; // Show download button
+            } else {
+                alert("Please enter a valid URL or text!");
+            }
+        }
+
+        function downloadQR() {
+            if (!qrURL) {
+                alert("Generate a QR code first!");
+                return;
+            }
+
+            fetch(qrURL) // Fetch the QR code as a blob
+                .then(response => response.blob())
+                .then(blob => {
+                    const link = document.createElement("a");
+                    const objectURL = URL.createObjectURL(blob);
+                    link.href = objectURL;
+                    link.download = "QR_Code.png"; // Set filename
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(objectURL); // Free memory
+                })
+                .catch(error => console.error("Error downloading QR code:", error));
+        }
+    </script>
+</body>
+</html>

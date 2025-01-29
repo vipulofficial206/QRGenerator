@@ -1,0 +1,137 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Global Reset for consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.video-bg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+/* Body styling: Background and Layout */
+body {
+    display: flex;                       /* Uses flexbox for centering content */
+    justify-content: center;             /* Centers content horizontally */
+    align-items: center;                 /* Centers content vertically */
+    min-height: 100vh;                   /* Ensures the body covers the full viewport height */
+}
+
+/* QR Code Container Styling */
+.qrcont {
+    width: 90%;                           /* Width is flexible, up to a max of 450px */
+    max-width: 450px;                     /* Limits maximum width */
+    padding: 20px;                        /* Padding around content */
+    background-image: url("https://images.pexels.com/photos/17483848/pexels-photo-17483848/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-a-look-inside-how-ai-microchips-are-designed-it-was-created-by-champ-panupong-techawongthawon-as-part-of-the-v.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;              /* Ensures the background covers the container */
+    background-repeat: no-repeat;        /* Prevents repeating background image */
+    background-position: center;         /* Centers background image */
+    border-radius: 25px;                 /* Rounds the corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+/* QR Code Input Box Styling */
+.qrinputbox {
+    padding-left: 50px;
+    font-size: 30px;                  /* Sets the font size for input labels */
+    font-weight: 1000;
+    color: black;                        /* Text color for input labels */
+    padding-bottom: 2vh;                  /* Adds some space below the label */
+}
+
+/* QR Code Input Field Styling */
+.qrinput {
+    width: 100%;                         /* Makes the input field take full container width */
+    height: 40px;                        /* Fixed height for the input field */
+    border-radius: 20px;                 /* Rounds the corners of the input field */
+    padding: 15px;                       /* Adds padding inside the input field */
+    font-size: 20px;                     /* Font size inside the input field */
+}
+
+/* Styling for the QR Generation and Download Buttons */
+.qrbutton button,
+.downloadqrbtn button {
+    width: 100%;                         /* Makes buttons take full container width */
+    max-width: 300px;                    /* Limits the maximum width of the buttons */
+    height: 45px;                        /* Fixed button height */
+    font-size: 18px;                     /* Button text size */
+    cursor: pointer;                    /* Changes the cursor to pointer when hovering */
+    transition: background 0.3s ease-in-out; /* Smooth background color transition on hover */
+}
+
+/* Hover Effect for Buttons */
+.qrbutton button:hover,
+.downloadqrbtn button:hover {
+    background-color: greenyellow;           /* Changes button background color on hover */
+    color: white;                        /* Changes text color to white on hover */
+}
+
+/* Styling for QR Code Image */
+#qrimage {
+    padding-top: 20px;                   /* Adds space above the QR image */
+    width: 150px;                        /* Fixed width for the image */
+    border-radius: 15px;                 /* Rounds the corners of the image */
+    max-height: 0;                       /* Initially hides the image */
+    opacity: 0;                          /* Initially makes the image fully transparent */
+    transition: opacity 2.0s ease-in-out, max-height 1.5s ease-in-out; /* Smooth transition for showing the image */
+}
+
+/* Show QR Code Image when the class .show-img is added */
+#qrimage.show-img {
+    max-height: 300px;                   /* Sets max-height when showing the image */
+    opacity: 1;                          /* Makes the image visible */
+}
+
+/* Download QR Button Container Styling */
+.downloadqrbtn {
+    padding-top: 20px;                   /* Adds space above the download button */
+}
+
+/* Styling for Download QR Button */
+.downloadqrbtn button {
+    font-size: 20px;                     /* Button text size */
+    border-radius: 20px;                 /* Rounds the corners of the button */
+}
+
+/* QR Button Container Styling */
+.qrbutton {
+    padding-top: 5%;                     /* Adds some padding above the button container */
+}
+
+.qrbutton button{
+    border-radius: 20px;
+}
+/* Flexbox Layout for Aligning the QR Image, Button, and Download Button */
+#qrimgbox,
+.qrbutton,
+.downloadqrbtn {
+    display: flex;                       /* Enables flexbox layout */
+    justify-content: center;             /* Centers the content horizontally */
+    align-items: center;                 /* Centers the content vertically */
+    flex-direction: column;              /* Stacks content vertically */
+}
+
+/* Responsive Styling for Small Screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .qrcont {
+        width: 95%;                       /* Increases container width on small screens */
+        padding: 20px;                    /* Keeps consistent padding */
+    }
+    .qrinput {
+        font-size: 16px;                  /* Reduces font size for input fields */
+    }
+    .qrbutton button,
+    .downloadqrbtn button {
+        font-size: 16px;                  /* Reduces font size for buttons */
+        height: 42px;                     /* Adjusts button height */
+    }
+}
