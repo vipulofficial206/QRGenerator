@@ -31,10 +31,7 @@ body {
     width: 90%;                           /* Width is flexible, up to a max of 450px */
     max-width: 450px;                     /* Limits maximum width */
     padding: 20px;                        /* Padding around content */
-    background-image: url("https://images.pexels.com/photos/17483848/pexels-photo-17483848/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-a-look-inside-how-ai-microchips-are-designed-it-was-created-by-champ-panupong-techawongthawon-as-part-of-the-v.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    background-size: cover;              /* Ensures the background covers the container */
-    background-repeat: no-repeat;        /* Prevents repeating background image */
-    background-position: center;         /* Centers background image */
+    background-color: rgb(146, 245, 199); /* Changes background colur */
     border-radius: 25px;                 /* Rounds the corners */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
 }
