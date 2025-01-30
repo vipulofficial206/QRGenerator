@@ -41,6 +41,7 @@
                 qrimage.src = qrURL;
                 qrimage.classList.add("show-img");
                 downloadBtn.style.display = "inline-block"; // Show download button
+                setTimeout(() => {qrinput.value = "";}, 3000);
             } else {
                 alert("Please enter a valid URL or text!");
             }
